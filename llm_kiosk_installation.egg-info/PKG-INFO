@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: llm-kiosk-installation
+Version: 0.1.0
+Summary: Local kiosk software for a two-LLM installation with controlled visitor influence.
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi<1.0.0,>=0.115.0
+Requires-Dist: httpx<1.0.0,>=0.27.0
+Requires-Dist: pyyaml<7.0.0,>=6.0.0
+Requires-Dist: uvicorn<1.0.0,>=0.30.0
+
+# Reciprocal Drift
+
+`Reciprocal Drift` is a local kiosk installation where two language models speak to each other while visitors inject short text fragments that subtly bend the exchange.
+
+## Stack
+
+- Backend: `FastAPI`, local `SQLite`, provider-agnostic model adapters
+- Frontend: `React` + `Vite`
+- Default runtime: one local exhibition computer, browser kiosk mode
+
+## What v1 includes
+
+- A `SessionController` that starts, pauses, resumes, and stops a two-agent loop
+- A provider adapter layer with a deterministic `mock` mode for offline prototyping
+- Visitor fragment intake with controlled multi-turn influence
+- Local persistence of sessions, turns, fragments, and event logs
+- WebSocket streaming for live kiosk/operator updates
+- A kiosk-facing conversation view and a separate operator control panel
+
+## Backend setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -e .
+uvicorn backend.app.main:app --reload
+```
+
+## Frontend setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## One-command local dev
+
+```bash
+./scripts/dev.sh
+```
+
+## Kiosk mode
+
+```bash
+./scripts/kiosk.sh
+```
+
+The kiosk script builds the frontend, starts the FastAPI server, and tries to open the app in Chrome kiosk mode on macOS. If Chrome is unavailable, it prints the URL and leaves the server running.
+
+## Config
+
+- `config.yaml` defines timing, prompts, storage, and model adapters
+- `.env` provides API secrets and optional base URLs
+- Default model provider is `mock`, so the installation can be demonstrated before real model credentials are added
+
+## Tests
+
+The included tests cover the influence engine and the session controller:
+
+```bash
+python3 -m unittest discover -s tests
+```

@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+backend/app/__init__.py
+backend/app/adapters.py
+backend/app/config.py
+backend/app/controller.py
+backend/app/database.py
+backend/app/influence.py
+backend/app/main.py
+backend/app/models.py
+llm_kiosk_installation.egg-info/PKG-INFO
+llm_kiosk_installation.egg-info/SOURCES.txt
+llm_kiosk_installation.egg-info/dependency_links.txt
+llm_kiosk_installation.egg-info/requires.txt
+llm_kiosk_installation.egg-info/top_level.txt
+tests/test_controller.py
+tests/test_influence.py

@@ -1,0 +1,18 @@
+[project]
+name = "llm-kiosk-installation"
+version = "0.1.0"
+description = "Local kiosk software for a two-LLM installation with controlled visitor influence."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0,<1.0.0",
+  "httpx>=0.27.0,<1.0.0",
+  "pyyaml>=6.0.0,<7.0.0",
+  "uvicorn>=0.30.0,<1.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["backend*"]

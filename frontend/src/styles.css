@@ -1,0 +1,332 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f6f2e8;
+  background:
+    radial-gradient(circle at top left, rgba(241, 165, 102, 0.16), transparent 34%),
+    radial-gradient(circle at right 15%, rgba(111, 198, 255, 0.18), transparent 28%),
+    linear-gradient(135deg, #17181c 0%, #0e0f13 45%, #13141b 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: transparent;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.app-header,
+.app-grid,
+.operator-panel,
+.kiosk-panel,
+.turn-card,
+.fragment-form,
+.panel-block,
+.error-banner {
+  backdrop-filter: blur(18px);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow,
+.panel-label,
+.session-note,
+.subtitle,
+.connection-pill,
+.turn-meta,
+.info-list span {
+  color: rgba(246, 242, 232, 0.72);
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.96;
+  max-width: 11ch;
+}
+
+.subtitle {
+  margin-top: 0.8rem;
+  max-width: 48rem;
+}
+
+.header-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: inline-flex;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.3rem;
+  border-radius: 999px;
+}
+
+.view-toggle button,
+.ghost-button {
+  background: transparent;
+  color: #f6f2e8;
+}
+
+.view-toggle button.active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.connection-pill {
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.95fr);
+  gap: 1.2rem;
+}
+
+.kiosk-panel,
+.operator-panel,
+.panel-block,
+.fragment-form,
+.error-banner {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(18, 20, 27, 0.6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+.kiosk-panel,
+.operator-panel {
+  border-radius: 28px;
+  padding: 1.2rem;
+}
+
+.kiosk-topline,
+.operator-row,
+.fragment-row,
+.turn-card header,
+.turn-card footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.conversation-feed {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1rem 0 1.2rem;
+  max-height: 60vh;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+
+.turn-card {
+  border-radius: 24px;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.speaker-agent_a {
+  background: linear-gradient(180deg, rgba(241, 165, 102, 0.14), rgba(255, 255, 255, 0.04));
+}
+
+.speaker-agent_b {
+  background: linear-gradient(180deg, rgba(111, 198, 255, 0.14), rgba(255, 255, 255, 0.04));
+}
+
+.speaker-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.turn-card p {
+  margin: 0.8rem 0 1rem;
+  font-size: 1.05rem;
+}
+
+.fragment-form {
+  border-radius: 24px;
+  padding: 1rem;
+}
+
+.fragment-form label {
+  display: block;
+  margin-bottom: 0.65rem;
+}
+
+.fragment-row {
+  flex-direction: column;
+}
+
+.fragment-form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 6rem;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #f6f2e8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fragment-form button,
+.button-grid button {
+  background: linear-gradient(135deg, #f1a566, #d96f7f);
+  color: #17181c;
+  font-weight: 700;
+}
+
+.operator-panel {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.panel-block {
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.95rem;
+}
+
+.info-list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.info-list li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.status-running {
+  background: rgba(97, 219, 154, 0.18);
+  color: #9cf4c1;
+}
+
+.status-paused {
+  background: rgba(255, 211, 117, 0.18);
+  color: #ffd980;
+}
+
+.status-error {
+  background: rgba(255, 105, 97, 0.18);
+  color: #ffaea8;
+}
+
+.status-stopped,
+.status-idle {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(246, 242, 232, 0.78);
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 22rem;
+  border-radius: 24px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: rgba(246, 242, 232, 0.78);
+}
+
+.error-banner {
+  margin-bottom: 1rem;
+  border-radius: 18px;
+  padding: 0.85rem 1rem;
+  color: #ffd6d4;
+  background: rgba(107, 20, 28, 0.58);
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    padding: 1rem;
+  }
+
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+
+  .conversation-feed {
+    max-height: none;
+  }
+}
